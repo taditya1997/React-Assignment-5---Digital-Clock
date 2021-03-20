@@ -5,5 +5,5 @@ function generateCodeFromObject(obj)
 {
     //return a code generated string
 }  
-//module.exports=generateCodeFromObject;
+module.export=generateCodeFromObject;
 ReactDOM.render(<App />, document.getElementById("root"));
