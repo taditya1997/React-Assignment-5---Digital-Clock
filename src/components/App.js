@@ -1,28 +1,29 @@
-import React, {Component} from "react";
-import '../styles/App.css';
-class App extends Component{
-    
-    constructor(props)
-    {
-        super(props);
-        this.state={time: new Date().toLocaleTimeString()}
-    
-    }
-    componentDidMount()
-    {
-        this.intervalID=setInterval(()=>this.updateClock(),1000);
-    }
-    componentWillUnmount()
-    {
-        clearInterval(this.intervalID);
-    }
-    updateClock()
-    {
-        this.setState({time:new Date().toLocaleTimeString()});
-    }
+import React, { Component, useState } from "react";
+import "../styles/App.css";
 
-    render(){
-        return(<div className="Clock"><h3>{this.state.time}</h3></div>);
-    }
+class App extends Component {
+  constructor() {
+    super();
+    this.state = { time: new Date() };
+  }
+  currentTime() {
+    this.setState({ time: new Date() });
+  }
+  componentDidMount() {
+    this.interval = setInterval(() => this.currentTime(), 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  render() {
+    return (
+      <>
+        <div className="Clock">
+          <h3 id="time">{this.state.time.toLocaleTimeString()}</h3>
+        </div>
+      </>
+    );
+  }
 }
+
 export default App;
